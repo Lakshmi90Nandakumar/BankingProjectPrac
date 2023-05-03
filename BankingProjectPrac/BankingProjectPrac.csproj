@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Practise\DataDrivenTestingEx.cs" />
     <Compile Include="Practise\SampleTest.cs" />
+    <Compile Include="Practise\DynamicDataDriven.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
