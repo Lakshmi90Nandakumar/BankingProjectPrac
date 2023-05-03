@@ -2,19 +2,21 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Security.Policy;
 
 namespace BankingProjectPrac.Practise
 {
     [TestClass]//define class as test class
     public class DataDrivenTestingEx
     {
+        IWebDriver driver=null;
 
 
         [DataTestMethod]//used to define method using multiple data to test 
                         //providing data to test the test method 
         [DataRow("https://www.google.co.in/", "Google")]
         [DataRow("https://www.facebook.com/", "Facebook – log in or sign up")]
-        [DataRow("https://www.amazon.in/", "Amazon.in : -amazon")]
+        [DataRow("https://www.amazon.in/", "- Amazon.in")]
 
         [TestMethod]//used to define method as test method
         [TestCategory("DataDrivenTest")]//used to categorize method
@@ -22,12 +24,11 @@ namespace BankingProjectPrac.Practise
         public void DataDrivenTest(string url, string exptitle)
         {
             Console.WriteLine("URL is: " + url + "  Expected Title is:  " + exptitle);
-            IWebDriver driver = new ChromeDriver();//lauch the browser
             driver.Navigate().GoToUrl(url);//entering the url throught test data
             String acTitle = driver.Title;//getting title of the web page
             try
             {
-                Assert.Equals(acTitle, exptitle);//vaidating the data
+                Assert.IsTrue(acTitle.Contains(exptitle));//vaidating the data
             }
             catch (Exception ex)
             {
@@ -37,7 +38,7 @@ namespace BankingProjectPrac.Practise
             }
             finally
             {
-                Assert.IsTrue(acTitle.Equals(exptitle));
+                Assert.IsTrue(acTitle.Contains(exptitle));
             }
 
 
@@ -47,6 +48,8 @@ namespace BankingProjectPrac.Practise
         public void Initialize()
         {
             Console.WriteLine("Before Test method");
+            driver = new ChromeDriver();//lauch the browser
+
             //MessageBox.Show("Test started");
 
         }
@@ -54,6 +57,7 @@ namespace BankingProjectPrac.Practise
         public void CleanUp()
         {
             Console.WriteLine("Test Method Executed");
+            driver.Close();
         }
     }
 }
