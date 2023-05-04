@@ -46,7 +46,7 @@ namespace BankingProjectPrac.Practise
         }
         [TestMethod]
         [TestCategory("TestUsingMethod")]
-        [DynamicData(nameof (Data),DynamicDataSourceType.Method)]
+        [DynamicData(nameof(DynMethod),DynamicDataSourceType.Method)]
         public void UsingDynamicMethod(int a,int b,int c)//implementing data driven testing using dymanic method
         {
             int add = a + b;
