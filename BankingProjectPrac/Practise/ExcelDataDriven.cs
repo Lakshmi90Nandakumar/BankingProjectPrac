@@ -7,13 +7,12 @@ namespace BankingProjectPrac.Practise
     [TestClass]
     public class ExcelDataDriven
     {
-        
+        Spreadsheet sheet;
         [TestMethod]
         [TestCategory("Excel Data fetch")]
         public void TestMethod1()
         {
-            Spreadsheet sheet = new Spreadsheet();
-            sheet.LoadFromFile("C:/Users/LENOVO/Downloads/details.xlsx");
+            
             string data = sheet.Workbook.Worksheets.ByName("Sheet1").Cell(0, 0).ToString();
             Console.WriteLine(data);    
 
@@ -22,8 +21,7 @@ namespace BankingProjectPrac.Practise
         [TestCategory("multiple data")]
         public void TestMethod2() 
         {
-            Spreadsheet sheet = new Spreadsheet();
-            sheet.LoadFromFile("C:/Users/LENOVO/Downloads/details.xlsx");
+            ;
             Worksheet sh=sheet.Workbook.Worksheets.ByName("Sheet1");
             int rowNum=sh.UsedRangeRowMax;
             int colNum=sh.UsedRangeColumnMax;
@@ -36,6 +34,17 @@ namespace BankingProjectPrac.Practise
               }
               Console.WriteLine();
             }
+        }
+        [TestInitialize]
+        public void TestInit()
+        {
+            sheet = new Spreadsheet();
+            sheet.LoadFromFile("C:/Users/LENOVO/Downloads/details.xlsx");
+        }
+        [TestCleanup] 
+        public void TestCleanup() 
+        {
+          sheet.Dispose();
         }
     }
 }
