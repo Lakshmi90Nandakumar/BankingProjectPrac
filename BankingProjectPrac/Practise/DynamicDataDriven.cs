@@ -26,7 +26,7 @@ namespace BankingProjectPrac.Practise
         public static IEnumerable<object[]> DynMethod()//defining dymanic data method
         {
             yield return new object[] { 1, 1, 2 };
-            yield return new object[] { 1, 2, 4 };
+            yield return new object[] { 1, 2, 3 };
             yield return new object[] { 2, 3, 5 };
             yield return new object[] { 4, 5, 9 };
         }

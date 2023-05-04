@@ -22,7 +22,7 @@ namespace BankingProjectPrac.Practise
         public void TestMethod2() //test methoad used to get multiple data from  excel
         {
             ;
-            Worksheet sh=sheet.Workbook.Worksheets.ByName("Sheet1")//getting sheet
+            Worksheet sh = sheet.Workbook.Worksheets.ByName("Sheet1");//getting sheet
             int rowNum=sh.UsedRangeRowMax;//getting last row number
             int colNum=sh.UsedRangeColumnMax;//getting last column number
             for(int i=0; i<=rowNum; i++) //to iterate through every row in excel
