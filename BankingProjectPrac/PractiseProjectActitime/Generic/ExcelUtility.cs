@@ -10,12 +10,15 @@ namespace BankingProjectPrac.PractiseProjectActitime.Generic
     public class ExcelUtility
     {
         Spreadsheet sheet;
+        //reading single data from excel
         public string FetchSingleDataExcel(string sheetName,int row,int col)
         {
+            string projdata = "C:\\Users\\LENOVO\\source\\repos\\BankingProjectPrac\\BankingProjectPrac\\PractiseProjectActitime\\Resources\\demodata.xlsx";
             sheet = new Spreadsheet();
-            sheet.LoadFromFile("C:/Users/LENOVO/Downloads/demodata.xlsx");
+            sheet.LoadFromFile(projdata);//loading the excel
+            //getting single data from excel sheet
             string data=sheet.Workbook.Worksheets.ByName(sheetName).Cell(row, col).ToString();
-            return data;
+            return data;//returning the data
         }
     }
 }

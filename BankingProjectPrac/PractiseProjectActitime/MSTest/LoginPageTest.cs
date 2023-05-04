@@ -9,26 +9,26 @@ using System.Security.Policy;
 namespace BankingProjectPrac.PractiseProjectActitime.MSTest
 {
     [TestClass]
-    public class LoginPageTest
+    public class LoginPageTest//automate the login page of demo actitime
     {
         IWebDriver driver;
-        ExcelUtility excelUtility = new ExcelUtility();
+        ExcelUtility excelUtility = new ExcelUtility();//creating object for excelutility
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod1()//test method to automate login page
         {
             
-            string url = excelUtility.FetchSingleDataExcel("Sheet1", 0, 1);
-            string userName= excelUtility.FetchSingleDataExcel("Sheet1", 1, 1);
-            string password= excelUtility.FetchSingleDataExcel("Sheet1", 2, 1);
-            LoginPage loginPage = new LoginPage(driver);
-            string acTitle=loginPage.Login(userName, password,driver);
-            string eTitle = "actiTIME - Login";
-            Console.WriteLine(driver.Title);
-            Assert.AreEqual(acTitle, eTitle);
+            string url = excelUtility.FetchSingleDataExcel("Sheet1", 0, 1);//getting data of url from excel
+            string userName= excelUtility.FetchSingleDataExcel("Sheet1", 1, 1);//getting data of username from excel
+            string password= excelUtility.FetchSingleDataExcel("Sheet1", 2, 1);//getting data of password from excel
+            LoginPage loginPage = new LoginPage(driver);//creating object for loginPage pom class
+            string acTitle =loginPage.Login(userName, password,driver);//executing business logic from loginpage
+            string eTitle = "actiTIME - Enter Time-Track";
+            Console.WriteLine("From login page test"+driver.Title);
+            Assert.AreEqual(acTitle, eTitle);//validating whether we have logged in successfully
         }
         [TestInitialize]
-        public void Init()
+        public void Init()//test iinitializer used to launch the browser and open to url
         {
 
             driver = new ChromeDriver();
@@ -37,7 +37,7 @@ namespace BankingProjectPrac.PractiseProjectActitime.MSTest
 
         }
         [TestCleanup]
-        public void Cleanup() 
+        public void Cleanup() //method is used to close the browser
         {
             driver.Close();
         

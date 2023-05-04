@@ -34,8 +34,9 @@ namespace BankingProjectPrac.PractiseProjectActitime.ObjectRepo
             loginBtn.Click();
             webDriverUtility.WindowMaximize(driver);
             webDriverUtility.Wait(driver);
+            webDriverUtility.ExplicitWait(driver);
             string acTitle = driver.Title;
-            Console.WriteLine(driver.Title);
+            Console.WriteLine("From login page after login:   "+driver.Title);
             return acTitle;
 
         }
