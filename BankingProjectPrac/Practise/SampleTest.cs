@@ -17,6 +17,11 @@ namespace BankingProjectPrac.Practise
             {
                 Console.WriteLine("Data 1: " + name + "  Data 2 : " + place);
             }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            Console.WriteLine("welcome");
+        }
             [TestInitialize]
             public void TestInitialize()
             {
