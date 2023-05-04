@@ -15,7 +15,7 @@ namespace BankingProjectPrac.Practise
             [Priority(1)]
             public void TestMethod(string name, string place)
             {
-                Console.WriteLine("Data 1: " + name + "Data 2 : " + place);
+                Console.WriteLine("Data 1: " + name + "  Data 2 : " + place);
             }
             [TestInitialize]
             public void TestInitialize()
