@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,14 @@ namespace AutomationProject.Generic
         public void AlertSendValue(IWebDriver driver,string text)
         {
             driver.SwitchTo().Alert().SendKeys(text);
+        }
+        public void TakeScreenShot(IWebDriver driver,string testMethodName)
+        {
+            ITakesScreenshot screenshot = (ITakesScreenshot)driver;
+            var ss=screenshot.GetScreenshot();
+            string screenShotPath = "C:\\Users\\LENOVO\\source\\repos\\BankingProjectPrac\\AutomationProject\\Generic\\ScreenShots\\" + testMethodName ;
+            ss.SaveAsFile(screenShotPath, ScreenshotImageFormat.Png);
+            
         }
     }
 }

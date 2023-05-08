@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="Bytescout.Spreadsheet" Version="4.7.0.2037" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects" Version="3.11.0" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="3.12.0" />
     <PackageReference Include="ExtentReports" Version="4.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
@@ -22,8 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Generic\" />
-    <Folder Include="ObjectRepository\" />
+    <Folder Include="Generic\ScreenShots\" />
+    <Folder Include="Generic\Reports\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
